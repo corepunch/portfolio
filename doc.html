@@ -1,0 +1,4098 @@
+<html xmlns="http://www.w3.org/2001/XMLSchema">
+	<head>
+		<link rel="stylesheet" href="doc.css" />
+	</head>
+	<body>
+		<div class="adjustable-sidebar-width full-width-container topic-wrapper">
+			<div class="sidebar">
+				<div class="technology-title">orca.core</div>
+				<a class="leaf-link" href="#Object">Object</a>
+				<div class="technology-title">orca.renderer</div>
+				<a class="leaf-link" href="#Window">Window</a>
+				<div class="technology-title">orca.ui</div>
+				<a class="leaf-link" href="#DataObject">DataObject</a>
+				<a class="leaf-link" href="#AnimationPlayer">AnimationPlayer</a>
+				<a class="leaf-link" href="#Trigger">Trigger</a>
+				<a class="leaf-link" href="#OnPropertyChangedTrigger">OnPropertyChangedTrigger</a>
+				<a class="leaf-link" href="#OnAttachedTrigger">OnAttachedTrigger</a>
+				<a class="leaf-link" href="#EventTrigger">EventTrigger</a>
+				<a class="leaf-link" href="#Setter">Setter</a>
+				<a class="leaf-link" href="#Project">Project</a>
+				<a class="leaf-link" href="#Handler">Handler</a>
+				<a class="leaf-link" href="#Node">Node</a>
+				<a class="leaf-link" href="#TextBlockConcept">TextBlockConcept</a>
+				<a class="leaf-link" href="#Node2D">Node2D</a>
+				<a class="leaf-link" href="#PrefabView2D">PrefabView2D</a>
+				<a class="leaf-link" href="#TextBlock">TextBlock</a>
+				<a class="leaf-link" href="#Input">Input</a>
+				<a class="leaf-link" href="#Button">Button</a>
+				<a class="leaf-link" href="#Label">Label</a>
+				<a class="leaf-link" href="#StackView">StackView</a>
+				<a class="leaf-link" href="#Form">Form</a>
+				<a class="leaf-link" href="#CollectionView">CollectionView</a>
+				<a class="leaf-link" href="#Control">Control</a>
+				<a class="leaf-link" href="#Screen">Screen</a>
+				<a class="leaf-link" href="#Cinematic">Cinematic</a>
+				<a class="leaf-link" href="#Grid">Grid</a>
+				<a class="leaf-link" href="#ImageView">ImageView</a>
+				<a class="leaf-link" href="#NinePatchImage">NinePatchImage</a>
+				<a class="leaf-link" href="#Material">Material</a>
+				<div class="technology-title">orca.SceneKit</div>
+				<a class="leaf-link" href="#Node3D">Node3D</a>
+				<a class="leaf-link" href="#Scene">Scene</a>
+				<a class="leaf-link" href="#Model3D">Model3D</a>
+				<a class="leaf-link" href="#PlaneMeshNode">PlaneMeshNode</a>
+				<a class="leaf-link" href="#Camera">Camera</a>
+				<a class="leaf-link" href="#TrajectoryList3D">TrajectoryList3D</a>
+				<a class="leaf-link" href="#Viewport3D">Viewport3D</a>
+				<a class="leaf-link" href="#PrefabView3D">PrefabView3D</a>
+				<a class="leaf-link" href="#RenderPass">RenderPass</a>
+				<a class="leaf-link" href="#CompositionTargetRenderPass">CompositionTargetRenderPass</a>
+				<a class="leaf-link" href="#BlitRenderPass">BlitRenderPass</a>
+				<a class="leaf-link" href="#ClearRenderPass">ClearRenderPass</a>
+				<a class="leaf-link" href="#DrawObjectsRenderPass">DrawObjectsRenderPass</a>
+				<a class="leaf-link" href="#PipelineStateRenderPass">PipelineStateRenderPass</a>
+				<a class="leaf-link" href="#TextBlock3D">TextBlock3D</a>
+				<a class="leaf-link" href="#Light3D">Light3D</a>
+				<a class="leaf-link" href="#SpriteView">SpriteView</a>
+			</div>
+			<main class="content">
+				<div id="Object" class="class" data-name="Object" data-inherits="" data-xmlns="">
+					<div class="eyebrow">Struct</div>
+					<h1 class="header">Object</h1>
+					<div class="abstract">Core engine host object.</div>
+					<code class="source">
+						<span class="token-keyword">struct</span>
+						<span class="token-identifier">orca.core.Object</span>
+					</code>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Provides the root context for managing all engine subsystems,including object creation, scene management, and lifecycle control.Serves as the primary entry point for applications.</div>
+					<h2 class="title">Functions</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">__eq</span>(<span class="identifier">other</span>:<span class="decorator">ObjectPtr</span>)<span class="decorator"> -&gt;</span>
+							<span> BOOL</span>
+						</code>
+						<div class="small-abstract">
+							<span>Compare two objects for equality.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">__gc</span>()</code>
+						<div class="small-abstract">
+							<span>Garbage-collect an object (clear and release).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">__getproperty</span>(<span class="identifier">property</span>:<span class="decorator">string</span>)<span class="decorator"> -&gt;</span>
+							<span> nresults</span>
+						</code>
+						<div class="small-abstract">
+							<span>Get a property value from an object.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">__setcontext</span>()</code>
+						<div class="small-abstract">
+							<span>Set the current context object where newly created objects will be parented.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">__setproperty</span>(<span class="identifier">property</span>:<span class="decorator">string</span>)<span class="decorator"> -&gt;</span>
+							<span> BOOL</span>
+						</code>
+						<div class="small-abstract">
+							<span>Set a property on the object.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">add_child</span>(<span class="identifier">child</span>:<span class="decorator">ObjectPtr</span>, <span class="identifier">is_template</span>:<span class="decorator">BOOL</span>)</code>
+						<div class="small-abstract">
+							<span>Add a child object.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">add_stylesheet</span>(<span class="identifier">source</span>:<span class="decorator">string</span>)</code>
+						<div class="small-abstract">
+							<span>Add a stylesheet to the object.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">bind</span>(<span class="identifier">property</span>:<span class="decorator">string</span>, <span class="identifier">expression</span>:<span class="decorator">string</span>)</code>
+						<div class="small-abstract">
+							<span>Bind a property of an object to an expression or data source.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">clear</span>()</code>
+						<div class="small-abstract">
+							<span>Clear all children and properties of the object.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">dispatch_event</span>(<span class="identifier">event</span>:<span class="decorator">string</span>)<span class="decorator"> -&gt;</span>
+							<span> ObjectPtr</span>
+						</code>
+						<div class="small-abstract">
+							<span>Dispatch an event starting from this object and bubbling up parents.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">do_tween</span>()</code>
+						<div class="small-abstract">
+							<span>Tween an object property over time.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">find_child</span>(<span class="identifier">name</span>:<span class="decorator">string</span>, <span class="identifier">recursive</span>:<span class="decorator">BOOL</span>)<span class="decorator"> -&gt;</span>
+							<span> ObjectPtr</span>
+						</code>
+						<div class="small-abstract">
+							<span>Find a child object by name.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">navigate_to</span>(<span class="identifier">path</span>:<span class="decorator">string</span>)<span class="decorator"> -&gt;</span>
+							<span> ObjectPtr</span>
+						</code>
+						<div class="small-abstract">
+							<span>Navigate to a child object by path.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">play</span>(<span class="identifier">animation</span>:<span class="decorator">string</span>)</code>
+						<div class="small-abstract">
+							<span>Play an animation or resource on the object.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">set_focus</span>()</code>
+						<div class="small-abstract">
+							<span>Set focus on the object.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">set_timer</span>()</code>
+						<div class="small-abstract">
+							<span>Set a timer on the object.</span>
+						</div>
+					</div>
+				</div>
+				<div id="Window" class="class" data-name="Window" data-inherits="" data-xmlns="">
+					<div class="eyebrow">Struct</div>
+					<h1 class="header">Window</h1>
+					<div class="abstract">Window interface abstraction.</div>
+					<code class="source">
+						<span class="token-keyword">struct</span>
+						<span class="token-identifier">orca.renderer.Window</span>
+					</code>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">The `Window` interface defines the contract for window creation andmanagement inside the framework. Each window instance operates in isolation,backed by its own `lua_State`, similar in spirit to Electron processes.This ensures complete separation of state and scripts across windows,avoiding unintended side effects between them.The main application script `main.lua` is responsible for creating andmanaging windows. Once created, each window runs independently,maintaining its own Lua environment and bindings.The event loop for windows is cooperative and integrated with the coreruntime. Events are dispatched and processed in a manner similar to hownative windowing systems propagate events, while remaining script-drivenand cross-platform within the engine.</div>
+					<h2 class="title">Functions</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">__gc</span>()</code>
+						<div class="small-abstract">
+							<span>Garbage collection handler for the window object.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">add_localization</span>(<span class="identifier">path</span>:<span class="decorator">string</span>)</code>
+						<div class="small-abstract">
+							<span>Adds a localization file for UI text within this window only.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">load_page</span>(<span class="identifier">path</span>:<span class="decorator">string</span>, <span class="identifier">keep_state</span>:<span class="decorator">BOOL</span>)<span class="decorator"> -&gt;</span>
+							<span> nresults</span>
+						</code>
+						<div class="small-abstract">
+							<span>Loads a UI page into the window.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">mount</span>(<span class="identifier">path</span>:<span class="decorator">string</span>)</code>
+						<div class="small-abstract">
+							<span>Registers an additional filesystem path as a source of asset for this window.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>func</span>
+							<span class="identifier">set_position</span>(<span class="identifier">x</span>:<span class="decorator">float</span>, <span class="identifier">y</span>:<span class="decorator">float</span>)</code>
+						<div class="small-abstract">
+							<span>Sets the position of the window on screen.</span>
+						</div>
+					</div>
+				</div>
+				<div id="DataObject" class="class" data-name="DataObject" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">DataObject</h1>
+					<div class="abstract">Base class for data-holding objects within the framework</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.DataObject</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Provides fundamental data management capabilities and serves as the basefor objects that participate in data binding operations.</div>
+				</div>
+				<div id="AnimationPlayer" class="class" data-name="AnimationPlayer" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">AnimationPlayer</h1>
+					<div class="abstract">Controls playback of animations within the UI engine.</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.AnimationPlayer</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Provides functionality for starting, stopping, and repeating animationson scene objects. Supports different playback modes, timing adjustments,and restoration of original property values.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">AutoplayEnabled</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Enables or disables automatic playback on initialization.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">DurationScale</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Scales the playback speed of the animation.A value greater than 1.0 speeds up playback, while valuesbetween 0.0 and 1.0 slow it down.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">PlaybackMode</span>:<span> PlaybackMode</span>
+						</code>
+						<div class="small-abstract">
+							<span>Defines how the animation should be played.</span>
+						</div>
+						<div class="small-abstract">Values: Normal, Reverse, Pingpong</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">RelativePlayback</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>When true, playback is relative to the current staterather than starting from an absolute base state.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">RepeatCount</span>:<span> int</span>
+						</code>
+						<div class="small-abstract">
+							<span>Number of times the animation should repeat.Use -1 (or another sentinel value, depending on implementation)to indicate infinite looping.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">RestoreOriginalValuesAfterPlayback</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Restores the original property values after the animation ends.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">Timeline</span>:<span> Timeline</span>
+						</code>
+						<div class="small-abstract">
+							<span>Reference to the animation timeline that defineskeyframes and transitions.</span>
+						</div>
+					</div>
+				</div>
+				<div id="Trigger" class="class" data-name="Trigger" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Trigger</h1>
+					<div class="abstract">Base class for event-driven actions within the UI system</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Trigger</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">PropertyChanged</li>
+							<li class="function">Attached</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Triggers respond to various conditions and can execute actions likeproperty changes or method calls. Part of the reactive UI behavior system.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Property</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Target property name to monitor or modify</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Value</span>:<span> int</span>
+						</code>
+						<div class="small-abstract">
+							<span>Associated value for the trigger condition</span>
+						</div>
+					</div>
+				</div>
+				<div id="OnPropertyChangedTrigger" class="class" data-name="OnPropertyChangedTrigger" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">OnPropertyChangedTrigger</h1>
+					<div class="abstract">Responds to property value changes on specified nodes</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.OnPropertyChangedTrigger</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">PropertyChanged</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Monitors a named property on a source node and triggers actionswhen the property value changes. Useful for reactive UI updates.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">SourceNode</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Name or identifier of the node to monitor</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Property</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Property name to watch for changes</span>
+						</div>
+					</div>
+				</div>
+				<div id="OnAttachedTrigger" class="class" data-name="OnAttachedTrigger" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">OnAttachedTrigger</h1>
+					<div class="abstract">Triggers when an element is attached to the visual tree</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.OnAttachedTrigger</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Attached</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Useful for initialization actions that should occur whenan element becomes part of the active UI hierarchy.</div>
+				</div>
+				<div id="EventTrigger" class="class" data-name="EventTrigger" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">EventTrigger</h1>
+					<div class="abstract">Responds to routed UI events (mouse, keyboard, etc.)</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.EventTrigger</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">HandleMessage</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Listens for specific routed events and can execute actionsin response. Supports the standard UI event bubbling system.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">RoutedEvent</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Name of the routed event to handle (e.g., "MouseDown", "KeyPress")</span>
+						</div>
+					</div>
+				</div>
+				<div id="Setter" class="class" data-name="Setter" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Setter</h1>
+					<div class="abstract">Applies property values when triggered by specified conditions</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Setter</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Triggered</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Part of the trigger system - sets target properties to specificvalues when the associated trigger condition is met.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">Trigger</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Triggering condition or state image</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Property</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Target property name to set</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Value</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Value to apply to the property</span>
+						</div>
+					</div>
+				</div>
+				<div id="Project" class="class" data-name="Project" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Project</h1>
+					<div class="abstract">Top-level project configuration and settings</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Project</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Defines global project parameters including screen dimensionsand project identification. Typically one per application.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Name</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Project identifier or display name</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ScreenWidth</span>:<span> int</span>
+						</code>
+						<div class="small-abstract">
+							<span>Target screen width in pixels</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ScreenHeight</span>:<span> int</span>
+						</code>
+						<div class="small-abstract">
+							<span>Target screen height in pixels</span>
+						</div>
+					</div>
+				</div>
+				<div id="Handler" class="class" data-name="Handler" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Handler</h1>
+					<div class="abstract">Executes custom functions when triggered by specified conditions</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Handler</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Triggered</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">More flexible than Setter - can call arbitrary functions on targetobjects rather than just setting properties.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">Trigger</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Triggering condition or state image</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">Target</span>:<span> Object</span>
+						</code>
+						<div class="small-abstract">
+							<span>Target object to call function on</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Function</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Function name to execute on target</span>
+						</div>
+					</div>
+				</div>
+				<div id="Node" class="class" data-name="Node" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Node</h1>
+					<div class="abstract">Base class for all UI engine nodes.</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Node</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Create</li>
+							<li class="function">ThemeChanged</li>
+							<li class="function">GetSize</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Node is the fundamental class for all engine objects (e.g., Node2D, Node3D, RenderPass).It manages shared functionality such as size, layout, visibility, opacity, tags,and data context. You normally work with derived classes rather than creatinginstances of Node directly.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Margin</span>:<span> edges</span>
+						</code>
+						<div class="small-abstract">
+							<span>Shorthand for setting spacing outside a node along its edges.Represents the outer spacing (margin) for all edges (top, right, bottom, left).Similar to the CSS </span>
+							<code class="token-keyword">margin</code>
+							<span> shorthand property. Can be applied per edge individually or as a combined value.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Padding</span>:<span> edges</span>
+						</code>
+						<div class="small-abstract">
+							<span>Shorthand for setting spacing inside a node along its edges.Represents the inner spacing (padding) between the node's content and its border for all edges.Similar to the CSS </span>
+							<code class="token-keyword">padding</code>
+							<span> shorthand property.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Border</span>:<span> edges</span>
+						</code>
+						<div class="small-abstract">
+							<span>Shorthand for defining borders along all edges of a node.Represents the border presence and style for all edges (top, right, bottom, left),similar to the CSS </span>
+							<code class="token-keyword">border</code>
+							<span> shorthand property.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderWidth</span>:<span> edges</span>
+						</code>
+						<div class="small-abstract">
+							<span>Shorthand for defining the thickness of borders along each edge.Specifies the width of the border for each edge, analogous to CSS </span>
+							<code class="token-keyword">border-width</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderStyle</span>:<span> edges</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderColor</span>:<span> edges</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">HorizontalMargin</span>:<span> EdgeShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>External spacing around the element</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MarginLeft</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Leading edge value (left for horizontal, top for vertical, near for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MarginRight</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Trailing edge value (right for horizontal, bottom for vertical, far for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">HorizontalPadding</span>:<span> EdgeShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Internal spacing between element border and content</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PaddingLeft</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Leading edge value (left for horizontal, top for vertical, near for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PaddingRight</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Trailing edge value (right for horizontal, bottom for vertical, far for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">HorizontalBorder</span>:<span> BorderSideShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border thickness along each axis (shorthand form).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderLeft</span>:<span> BorderShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Leading edge border (left/top/near)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BorderLeftWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border left thickness in pixels</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BorderLeftStyle</span>:<span> BorderStyle</span>
+						</code>
+						<div class="small-abstract">
+							<span>Visual style of the left border</span>
+						</div>
+						<div class="small-abstract">Values: None, Hidden, Dotted, Dashed, Solid, Double, Groove, Ridge, Inset, Outset</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderLeftColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border left color</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderRight</span>:<span> BorderShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Trailing edge border (right/bottom/far)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BorderRightWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border right thickness in pixels</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BorderRightStyle</span>:<span> BorderStyle</span>
+						</code>
+						<div class="small-abstract">
+							<span>Visual style of the right border</span>
+						</div>
+						<div class="small-abstract">Values: None, Hidden, Dotted, Dashed, Solid, Double, Groove, Ridge, Inset, Outset</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderRightColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border right color</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">HorizontalAlignment</span>:<span> uint32_t</span>
+						</code>
+						<div class="small-abstract">
+							<span>Alignment of the element within its parent (similar to HorizontalAlignment/VerticalAlignment in XAML).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Width</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Requested size along this axis (e.g., Width, Height, Depth).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ActualWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Actual computed size after layout resolution.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MinWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Minimum allowable size along this axis.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ScrollWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Total size required for scrolling content along this axis.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">VerticalMargin</span>:<span> EdgeShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>External spacing around the element</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MarginTop</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Leading edge value (left for horizontal, top for vertical, near for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MarginBottom</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Trailing edge value (right for horizontal, bottom for vertical, far for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">VerticalPadding</span>:<span> EdgeShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Internal spacing between element border and content</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PaddingTop</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Leading edge value (left for horizontal, top for vertical, near for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PaddingBottom</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Trailing edge value (right for horizontal, bottom for vertical, far for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">VerticalBorder</span>:<span> BorderSideShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border thickness along each axis (shorthand form).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderTop</span>:<span> BorderShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Leading edge border (left/top/near)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BorderTopWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border left thickness in pixels</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BorderTopStyle</span>:<span> BorderStyle</span>
+						</code>
+						<div class="small-abstract">
+							<span>Visual style of the left border</span>
+						</div>
+						<div class="small-abstract">Values: None, Hidden, Dotted, Dashed, Solid, Double, Groove, Ridge, Inset, Outset</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderTopColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border left color</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderBottom</span>:<span> BorderShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Trailing edge border (right/bottom/far)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BorderBottomWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border right thickness in pixels</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BorderBottomStyle</span>:<span> BorderStyle</span>
+						</code>
+						<div class="small-abstract">
+							<span>Visual style of the right border</span>
+						</div>
+						<div class="small-abstract">Values: None, Hidden, Dotted, Dashed, Solid, Double, Groove, Ridge, Inset, Outset</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderBottomColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border right color</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">VerticalAlignment</span>:<span> uint32_t</span>
+						</code>
+						<div class="small-abstract">
+							<span>Alignment of the element within its parent (similar to HorizontalAlignment/VerticalAlignment in XAML).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Height</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Requested size along this axis (e.g., Width, Height, Depth).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ActualHeight</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Actual computed size after layout resolution.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MinHeight</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Minimum allowable size along this axis.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ScrollHeight</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Total size required for scrolling content along this axis.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">DepthMargin</span>:<span> EdgeShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>External spacing around the element</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MarginFront</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Leading edge value (left for horizontal, top for vertical, near for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MarginBack</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Trailing edge value (right for horizontal, bottom for vertical, far for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">DepthPadding</span>:<span> EdgeShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Internal spacing between element border and content</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PaddingFront</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Leading edge value (left for horizontal, top for vertical, near for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PaddingBack</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Trailing edge value (right for horizontal, bottom for vertical, far for depth)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">DepthBorder</span>:<span> BorderSideShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border thickness along each axis (shorthand form).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderFront</span>:<span> BorderShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Leading edge border (left/top/near)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BorderFrontWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border left thickness in pixels</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BorderFrontStyle</span>:<span> BorderStyle</span>
+						</code>
+						<div class="small-abstract">
+							<span>Visual style of the left border</span>
+						</div>
+						<div class="small-abstract">Values: None, Hidden, Dotted, Dashed, Solid, Double, Groove, Ridge, Inset, Outset</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderFrontColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border left color</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderBack</span>:<span> BorderShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Trailing edge border (right/bottom/far)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BorderBackWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border right thickness in pixels</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BorderBackStyle</span>:<span> BorderStyle</span>
+						</code>
+						<div class="small-abstract">
+							<span>Visual style of the right border</span>
+						</div>
+						<div class="small-abstract">Values: None, Hidden, Dotted, Dashed, Solid, Double, Groove, Ridge, Inset, Outset</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderBackColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border right color</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">DepthAlignment</span>:<span> uint32_t</span>
+						</code>
+						<div class="small-abstract">
+							<span>Alignment of the element within its parent (similar to HorizontalAlignment/VerticalAlignment in XAML).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Depth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Requested size along this axis (e.g., Width, Height, Depth).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ActualDepth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Actual computed size after layout resolution.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MinDepth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Minimum allowable size along this axis.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ScrollDepth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Total size required for scrolling content along this axis.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Visible</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Whether this node is visible in the scene.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">QuickHide</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>If true, node is quickly hidden without triggering full visibility transitions.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">VisibleAmountInParent</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Specifies how much of the node is visible within its parent container.Value in range [0.0, 1.0].</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Opacity</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Opacity of the node, range [0.0 = transparent, 1.0 = fully opaque].</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Tags</span>:<span> objectTags_t</span>
+						</code>
+						<div class="small-abstract">
+							<span>Tag collection for categorizing or querying nodes.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>object</span>
+							<span class="identifier">DataContext</span>:<span> DataSource</span>
+						</code>
+						<div class="small-abstract">
+							<span>Data context (used for data binding, similar to XAML's DataContext).</span>
+						</div>
+					</div>
+				</div>
+				<div id="TextBlockConcept" class="class" data-name="TextBlockConcept" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">TextBlockConcept</h1>
+					<div class="abstract">Shared concept for text rendering in 2D and 3D nodes.</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.TextBlockConcept</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Create</li>
+							<li class="function">MakeText</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">This class is not instantiated directly. Instead, it provides the commonproperties and functionality for text rendering, used internally byhigher-level components such as 2D and 3D text nodes.The concept encapsulates text content, resources, formatting options,alignment, and font configuration.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Text</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>The short text string displayed in the block, limited to 64 bytes.If you need more space consider using </span>
+							<code class="token-keyword">TextResourceID</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">TextResourceID</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Resource identifier for localized text lookup.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">TextResourceConfiguration</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Configuration key used when resolving text resources.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PlaceholderText</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Placeholder text displayed when no main text is set.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">TextOverflow</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Defines how overflowing text should be handled (clip, ellipsis, etc.).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">HighlightColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Color used for highlighting portions of the text.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Placeholder</span>:<span> BrushShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Brush definition for rendering placeholder text.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">PlaceholderColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Solid color fillConceptually similar to a CSS </span>
+							<code class="token-keyword">color</code>
+							<span> or </span>
+							<code class="token-keyword">background-color</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">PlaceholderImage</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Texture/image fillConceptually similar to a CSS </span>
+							<code class="token-keyword">background-image</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>object</span>
+							<span class="identifier">PlaceholderMaterial</span>:<span> Material</span>
+						</code>
+						<div class="small-abstract">
+							<span>Custom material or shader fillAdvanced fill using shader/material settings for effects beyond simple color or image.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Underline</span>:<span> UnderlineShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Underline style applied to the text.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">UnderlineOffset</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Vertical offset of the underline from the baseline.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">UnderlineWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Line thickness of the underline.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">UnderlineColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Color of the underline.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">UseFullFontHeight</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>When true, uses the font's full height for layout calculations.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ConstrainContentHeight</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Constrains the content height to the text's bounding box.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">WordWrap</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Enables automatic word wrapping of the text.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">RemoveSideBearingsProperty</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Removes side bearings (spacing) defined by the font.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">LetterSpacing</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Additional spacing applied between letters.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">LineHeight</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Line height multiplier for multi-line text layout.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">CharacterSpacing</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Extra spacing between characters, beyond kerning.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">FixedCharacterWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Forces a fixed width per character (monospace effect).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">TextHorizontalAlignment</span>:<span> TextHorizontalAlignment</span>
+						</code>
+						<div class="small-abstract">
+							<span>Horizontal alignment of the text within its bounds.</span>
+						</div>
+						<div class="small-abstract">Values: Left, Center, Right</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">TextVerticalAlignment</span>:<span> TextVerticalAlignment</span>
+						</code>
+						<div class="small-abstract">
+							<span>Vertical alignment of the text within its bounds.</span>
+						</div>
+						<div class="small-abstract">Values: Top, Center, Bottom, Baseline</div>
+					</div>
+				</div>
+				<div id="Node2D" class="class" data-name="Node2D" data-inherits="Node" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Node2D</h1>
+					<div class="abstract">Primary class for 2D UI elements with comprehensive rendering capabilities</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Node2D</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node" class="name base">Node</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">UpdateMatrix</li>
+							<li class="function">Create</li>
+							<li class="function">Destroy</li>
+							<li class="function">UpdateGeometry</li>
+							<li class="function">DrawBrush</li>
+							<li class="function">UpdateLayout</li>
+							<li class="function">HandleMessage</li>
+							<li class="function">ScrollWheel</li>
+							<li class="function">MouseMoved</li>
+							<li class="function">HitTest</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Extends Node with 2D-specific functionality including transforms, visual effects,composition, and event handling. This is the base class for most visible UI elements.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">LayoutTransform</span>:<span> transform2</span>
+						</code>
+						<div class="small-abstract">
+							<span>Transformation applied during layout calculations.Similar to WPF </span>
+							<code class="token-keyword">LayoutTransform</code>
+							<span>. Affects size and positioningbut does not influence local rendering.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">LayoutTransformTranslation</span>:<span> vec2</span>
+						</code>
+						<div class="small-abstract">
+							<span>The layout transform position offset in 2D space (x, y).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">LayoutTransformRotation</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>The layout transform rotation in radians, applied around the origin.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">LayoutTransformScale</span>:<span> vec2</span>
+						</code>
+						<div class="small-abstract">
+							<span>The layout transform scale factors in 2D space (x, y).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">RenderTransform</span>:<span> transform2</span>
+						</code>
+						<div class="small-abstract">
+							<span>Transformation applied at render time.Similar to WPF </span>
+							<code class="token-keyword">RenderTransform</code>
+							<span>. Affects how the element is drawn(rotation, scale, skew, etc.) without altering layout.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">RenderTransformTranslation</span>:<span> vec2</span>
+						</code>
+						<div class="small-abstract">
+							<span>The render transform position offset in 2D space (x, y).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">RenderTransformRotation</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>The render transform rotation in radians, applied around the origin.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">RenderTransformScale</span>:<span> vec2</span>
+						</code>
+						<div class="small-abstract">
+							<span>The render transform scale factors in 2D space (x, y).</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">RenderTransformOrigin</span>:<span> vec2</span>
+						</code>
+						<div class="small-abstract">
+							<span>The origin point for applying RenderTransform.Equivalent to WPF </span>
+							<code class="token-keyword">RenderTransformOrigin</code>
+							<span>. Defines pivot relative to the element.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">ContentOffset</span>:<span> vec2</span>
+						</code>
+						<div class="small-abstract">
+							<span>Pixel offset applied to the element's content.Can be used for subpixel positioning or scrolling adjustments.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Matrix</span>:<span> mat4</span>
+						</code>
+						<div class="small-abstract">
+							<span>Final transformation matrix applied to the node.Computed result of layout, render, and parent transforms.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">RenderTarget</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Optional render target for offscreen drawing.When set, the node is rendered into this texture/image instead of directly on screen.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Background</span>:<span> BrushShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Background brush for the element.Equivalent to WPF </span>
+							<code class="token-keyword">Background</code>
+							<span>. Supports solid color, image, or material.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BackgroundColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Solid color fillConceptually similar to a CSS </span>
+							<code class="token-keyword">color</code>
+							<span> or </span>
+							<code class="token-keyword">background-color</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">BackgroundImage</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Texture/image fillConceptually similar to a CSS </span>
+							<code class="token-keyword">background-image</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>object</span>
+							<span class="identifier">BackgroundMaterial</span>:<span> Material</span>
+						</code>
+						<div class="small-abstract">
+							<span>Custom material or shader fillAdvanced fill using shader/material settings for effects beyond simple color or image.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Foreground</span>:<span> BrushShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Foreground brush for the element.Equivalent to WPF </span>
+							<code class="token-keyword">Foreground</code>
+							<span>. Typically used for text or shape fills.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">ForegroundColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Solid color fillConceptually similar to a CSS </span>
+							<code class="token-keyword">color</code>
+							<span> or </span>
+							<code class="token-keyword">background-color</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">ForegroundImage</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Texture/image fillConceptually similar to a CSS </span>
+							<code class="token-keyword">background-image</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>object</span>
+							<span class="identifier">ForegroundMaterial</span>:<span> Material</span>
+						</code>
+						<div class="small-abstract">
+							<span>Custom material or shader fillAdvanced fill using shader/material settings for effects beyond simple color or image.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BoxShadow</span>:<span> ShadowShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Shadow applied to the element's box.Equivalent to CSS </span>
+							<code class="token-keyword">box-shadow</code>
+							<span> or WPF </span>
+							<code class="token-keyword">DropShadowEffect</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BoxShadowOffset</span>:<span> vec2</span>
+						</code>
+						<div class="small-abstract">
+							<span>Shadow offset from element (x, y)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BoxShadowBlurRadius</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Blur amount for shadow softness</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BoxShadowSpreadRadius</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Shadow expansion beyond element bounds</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BoxShadowColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Shadow color and opacity</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Overflow</span>:<span> OverflowShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Defines overflow behavior for child content.Equivalent to CSS </span>
+							<code class="token-keyword">overflow</code>
+							<span>. Controls clipping and scroll behavior.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">OverflowX</span>:<span> Overflow</span>
+						</code>
+						<div class="small-abstract">
+							<span>Horizontal overflow handling</span>
+						</div>
+						<div class="small-abstract">Values: Visible, Hidden, Clip, Scroll, Auto</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">OverflowY</span>:<span> Overflow</span>
+						</code>
+						<div class="small-abstract">
+							<span>Vertical overflow handling</span>
+						</div>
+						<div class="small-abstract">Values: Visible, Hidden, Clip, Scroll, Auto</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Ring</span>:<span> RingShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Decorative ring effect applied around the element.Similar in purpose to CSS </span>
+							<code class="token-keyword">outline</code>
+							<span> or focus ring indicators.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">RingOffset</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Distance from element edge to ring</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">RingWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Ring thickness in pixels</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">RingColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Ring color and opacity</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">BorderRadius</span>:<span> BorderRadiusShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Border radius for rounding corners.Equivalent to CSS </span>
+							<code class="token-keyword">border-radius</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BorderTopLeftRadius</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Top-left corner radius</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BorderTopRightRadius</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Top-right corner radius</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BorderBottomRightRadius</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Bottom-right corner radius</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BorderBottomLeftRadius</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Bottom-left corner radius</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Font</span>:<span> FontShorthand</span>
+						</code>
+						<div class="small-abstract">
+							<span>Font definition used for text rendering.Contains typeface, size, and style information.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">FontWeight</span>:<span> FontWeight</span>
+						</code>
+						<div class="small-abstract">
+							<span>Font weight (normal or bold)</span>
+						</div>
+						<div class="small-abstract">Values: Normal, Bold</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">FontStyle</span>:<span> FontStyle</span>
+						</code>
+						<div class="small-abstract">
+							<span>Font style (normal or italic)</span>
+						</div>
+						<div class="small-abstract">Values: Normal, Italic</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">FontSize</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Font size in points</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">FontFamily</span>:<span> Font</span>
+						</code>
+						<div class="small-abstract">
+							<span>Font family reference</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>object</span>
+							<span class="identifier">CompositionBrush</span>:<span> Material</span>
+						</code>
+						<div class="small-abstract">
+							<span>Custom composition brush for advanced rendering.Equivalent to UWP </span>
+							<code class="token-keyword">CompositionBrush</code>
+							<span>. Can be used for effects or visualsbeyond standard brushes.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">CompositionDesignSize</span>:<span> vec2</span>
+						</code>
+						<div class="small-abstract">
+							<span>Virtual design size when using composition rendering.Defines the expected size for the composition surface.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">SizeToContent</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Whether the element resizes itself to fit its content.Equivalent to WPF </span>
+							<code class="token-keyword">SizeToContent</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">OffscreenRendering</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Enables rendering to an offscreen surface before compositing.Useful for caching effects or complex visuals.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ForceComposition</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Forces use of the composition system even when not required.Equivalent to enabling composition layers for debugging or effects.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">CacheResult</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Enables caching of rendering results.Similar to WPF </span>
+							<code class="token-keyword">CacheMode</code>
+							<span>. Reduces redraw cost at the expense of memory.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">SnapToPixel</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Snaps rendering to device pixels.Equivalent to WPF </span>
+							<code class="token-keyword">SnapsToDevicePixels</code>
+							<span>. Improves text sharpness.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ClipChildren</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Controls whether children are clipped to the bounds of the element.Equivalent to WPF </span>
+							<code class="token-keyword">ClipToBounds</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ContentStretch</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Determines if content stretches to fill available space.Equivalent to WPF </span>
+							<code class="token-keyword">Stretch</code>
+							<span> when applied to child content.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Hovered</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Indicates if the element is currently hovered by pointer/mouse.Equivalent to WPF </span>
+							<code class="token-keyword">IsMouseOver</code>
+							<span>.</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">ForegroundHint</span>:<span> ForegroundHint</span>
+						</code>
+						<div class="small-abstract">
+							<span>Hint for how foreground should be rendered.May be used for accessibility, high-contrast, or text rendering optimizations.</span>
+						</div>
+						<div class="small-abstract">Values: None, Translucent, Opaque</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MouseDown</span>:<span> Event</span>
+						</code>
+						<div class="small-abstract">
+							<span>Event fired when mouse button is pressed over element</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MouseUp</span>:<span> Event</span>
+						</code>
+						<div class="small-abstract">
+							<span>Event fired when mouse button is released over element</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">MouseDrag</span>:<span> Event</span>
+						</code>
+						<div class="small-abstract">
+							<span>Event fired during mouse drag operations</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">GotFocus</span>:<span> Event</span>
+						</code>
+						<div class="small-abstract">
+							<span>Event fired when element receives keyboard focus</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">LostFocus</span>:<span> Event</span>
+						</code>
+						<div class="small-abstract">
+							<span>Event fired when element loses keyboard focus</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">KeyDown</span>:<span> Event</span>
+						</code>
+						<div class="small-abstract">
+							<span>Event fired when key is pressed while element has focus</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">KeyUp</span>:<span> Event</span>
+						</code>
+						<div class="small-abstract">
+							<span>Event fired when key is released while element has focus</span>
+						</div>
+					</div>
+				</div>
+				<div id="PrefabView2D" class="class" data-name="PrefabView2D" data-inherits="Node2D" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">PrefabView2D</h1>
+					<div class="abstract">Container for loading and displaying prefabricated UI components</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.PrefabView2D</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">LoadView</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Allows loading of pre-designed UI layouts from external resources.Useful for reusable UI components and modular design patterns.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">SCA</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Scene archive identifier or path</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Prefab</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Prefab resource name within the archive</span>
+						</div>
+					</div>
+				</div>
+				<div id="TextBlock" class="class" data-name="TextBlock" data-inherits="Node2D, TextBlockConcept" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">TextBlock</h1>
+					<div class="abstract">Concrete implementation of text display combining Node2D and TextBlockConcept</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.TextBlock</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+							<li>
+								<a href="#TextBlockConcept" class="name base"> TextBlockConcept</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">UpdateLayout</li>
+							<li class="function">ForegroundContent</li>
+							<li class="function">UpdateGeometry</li>
+							<li class="function">Create</li>
+							<li class="function">DrawBrush</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Primary class for displaying static text with full typography control.Combines 2D rendering capabilities with comprehensive text formatting options.</div>
+				</div>
+				<div id="Input" class="class" data-name="Input" data-inherits="TextBlock" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Input</h1>
+					<div class="abstract">Interactive text input control with multiple input modes</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Input</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#TextBlock" class="name base">TextBlock</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Create</li>
+							<li class="function">DrawBrush</li>
+							<li class="function">MakeText</li>
+							<li class="function">KeyDown</li>
+							<li class="function">KillFocus</li>
+							<li class="function">LeftMouseUp</li>
+							<li class="function">UpdateLayout</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Extends TextBlock to provide editable text capabilities. Supportsvarious input types including text, password, numeric, checkbox, and radio button modes.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Name</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Input identifier for forms and data binding</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">Type</span>:<span> InputType</span>
+						</code>
+						<div class="small-abstract">
+							<span>Input behavior type (text, password, etc.)</span>
+						</div>
+						<div class="small-abstract">Values: Text, Password, Number, Checkbox, Radio</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Cursor</span>:<span> int</span>
+						</code>
+						<div class="small-abstract">
+							<span>Current text cursor position</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Multiline</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Allow multiple lines of text input</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Checked</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Checked state for checkbox/radio types</span>
+						</div>
+					</div>
+				</div>
+				<div id="Button" class="class" data-name="Button" data-inherits="TextBlock" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Button</h1>
+					<div class="abstract">Interactive button control for user actions</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Button</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#TextBlock" class="name base">TextBlock</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Create</li>
+							<li class="function">LeftMouseUp</li>
+							<li class="function">KeyDown</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Extends TextBlock to provide clickable button functionality.Handles mouse and keyboard activation with customizable button types.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">Type</span>:<span> ButtonType</span>
+						</code>
+						<div class="small-abstract">
+							<span>Button behavior type (normal or submit)</span>
+						</div>
+						<div class="small-abstract">Values: Normal, Submit</div>
+					</div>
+				</div>
+				<div id="Label" class="class" data-name="Label" data-inherits="TextBlock" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Label</h1>
+					<div class="abstract">Text label with optional association to form controls</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Label</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#TextBlock" class="name base">TextBlock</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">LeftMouseUp</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Displays static text that can be associated with input controlsfor accessibility. Clicking the label can transfer focus to associated control.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">For</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Identifier of associated form control</span>
+						</div>
+					</div>
+				</div>
+				<div id="StackView" class="class" data-name="StackView" data-inherits="Node2D" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">StackView</h1>
+					<div class="abstract">Linear layout container arranging children in a single direction</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.StackView</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">UpdateLayout</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Provides flexbox-style linear layout with configurable direction,alignment, spacing, and content justification. Children are arrangedsequentially along the specified axis.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Reversed</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Reverse the order of child elements</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">Direction</span>:<span> Direction</span>
+						</code>
+						<div class="small-abstract">
+							<span>Layout direction (horizontal or vertical)</span>
+						</div>
+						<div class="small-abstract">Values: Horizontal, Vertical, Depth</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">AlignItems</span>:<span> AlignItems</span>
+						</code>
+						<div class="small-abstract">
+							<span>Cross-axis alignment of children</span>
+						</div>
+						<div class="small-abstract">Values: Start, Center, End, Stretch, Baseline</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">JustifyContent</span>:<span> JustifyContent</span>
+						</code>
+						<div class="small-abstract">
+							<span>Main-axis distribution of children</span>
+						</div>
+						<div class="small-abstract">Values: Start, End, Center, SpaceBetween, SpaceAround, SpaceEvenly</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Spacing</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Space between adjacent children</span>
+						</div>
+					</div>
+				</div>
+				<div id="Form" class="class" data-name="Form" data-inherits="StackView" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Form</h1>
+					<div class="abstract">Specialized stack view for form input collection and submission</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Form</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#StackView" class="name base">StackView</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Create</li>
+							<li class="function">Submit</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Extends StackView with form-specific functionality includingautomatic input collection and submission handling.</div>
+				</div>
+				<div id="CollectionView" class="class" data-name="CollectionView" data-inherits="Node2D" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">CollectionView</h1>
+					<div class="abstract">Container for dynamic collections of data-driven items</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.CollectionView</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">UpdateLayout</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Manages collections of UI elements, typically data-bound todynamic data sources. Provides efficient rendering of large item sets.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">Direction</span>:<span> Direction</span>
+						</code>
+						<div class="small-abstract">
+							<span>Primary layout direction for items</span>
+						</div>
+						<div class="small-abstract">Values: Horizontal, Vertical, Depth</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Spacing</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Space between collection items</span>
+						</div>
+					</div>
+				</div>
+				<div id="Control" class="class" data-name="Control" data-inherits="Node2D" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Control</h1>
+					<div class="abstract">Base class for interactive UI controls with state management</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Control</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+						</ui>
+					</code>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Provides common state properties for interactive elementsincluding press, hover, focus, and disabled states.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Pressed</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Currently being pressed by user input</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Disabled</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Interaction disabled, typically grayed out</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Hovered</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Mouse pointer is over the control</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Focused</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Control has keyboard focus</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Value</span>:<span> bool</span>
+						</code>
+						<div class="small-abstract">
+							<span>Generic boolean value for toggle controls</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Scale</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Visual scale factor for size adjustments</span>
+						</div>
+					</div>
+				</div>
+				<div id="Screen" class="class" data-name="Screen" data-inherits="Node2D" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Screen</h1>
+					<div class="abstract">Top-level container representing a display surface or window</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Screen</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">RenderScreen</li>
+							<li class="function">UpdateLayout</li>
+							<li class="function">Destroy</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Provides the root rendering context for UI hierarchies.Manages screen-level operations like clearing and render target management.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">ClearColor</span>:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Background clear color for the screen</span>
+						</div>
+					</div>
+				</div>
+				<div id="Cinematic" class="class" data-name="Cinematic" data-inherits="Node2D" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Cinematic</h1>
+					<div class="abstract">Video or animation playback view for media content</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Cinematic</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Create</li>
+							<li class="function">DrawBrush</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Handles playback of video files or frame-based animationswith timing control and fade effects.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">FileName</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Path to media file for playback</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">FrameRate</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Playback frame rate (frames per second)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">NumFrames</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Total number of frames in the media</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">FadeOut</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Fade-out duration in seconds</span>
+						</div>
+					</div>
+				</div>
+				<div id="Grid" class="class" data-name="Grid" data-inherits="Node2D" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Grid</h1>
+					<div class="abstract">Grid-based layout container with configurable rows and columns</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Grid</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">UpdateLayout</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Arranges children in a 2D grid pattern with flexible sizing.Supports both fixed and dynamic grid definitions.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Columns</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Column definition string (e.g., "1fr 2fr 100px")</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Rows</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Row definition string (e.g., "auto 1fr auto")</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">Direction</span>:<span> Direction</span>
+						</code>
+						<div class="small-abstract">
+							<span>Primary fill direction for auto-placement</span>
+						</div>
+						<div class="small-abstract">Values: Horizontal, Vertical, Depth</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Spacing</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Space between grid cells</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">CellWidth</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Default width for auto-sized cells</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">CellHeight</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Default height for auto-sized cells</span>
+						</div>
+					</div>
+				</div>
+				<div id="ImageView" class="class" data-name="ImageView" data-inherits="Node2D" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">ImageView</h1>
+					<div class="abstract">Displays image content with advanced rendering and scaling options</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.ImageView</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">UpdateLayout</li>
+							<li class="function">ForegroundContent</li>
+							<li class="function">DrawBrush</li>
+							<li class="function">Create</li>
+							<li class="function">LoadView</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Renders static images with support for nine-patch scaling,blend modes, and viewport control. Handles both loaded images andimages loaded from file paths.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Src</span>:<span> string</span>
+						</code>
+						<div class="small-abstract">
+							<span>Image source path or resource identifier</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">Image</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Direct reference to loaded image</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BlendMode</span>:<span> BlendMode</span>
+						</code>
+						<div class="small-abstract">
+							<span>Blending mode for image composition</span>
+						</div>
+						<div class="small-abstract">Values: Opaque, Alpha, Additive, PremultipliedAlpha, MixedAlpha, AlphaAutomatic</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Edges</span>:<span> vec4</span>
+						</code>
+						<div class="small-abstract">
+							<span>Edge inset values for nine-patch rendering</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Insets</span>:<span> vec4</span>
+						</code>
+						<div class="small-abstract">
+							<span>Content inset values for image positioning</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Viewbox</span>:<span> vec4</span>
+						</code>
+						<div class="small-abstract">
+							<span>Viewport rectangle for image cropping/scaling</span>
+						</div>
+					</div>
+				</div>
+				<div id="NinePatchImage" class="class" data-name="NinePatchImage" data-inherits="Node2D" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">NinePatchImage</h1>
+					<div class="abstract">Specialized image view for nine-patch (stretchable) images</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.NinePatchImage</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">UpdateLayout</li>
+							<li class="function">ForegroundContent</li>
+							<li class="function">DrawBrush</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Renders images that can be stretched while preserving cornerand edge regions. Commonly used for UI panels, buttons, and bordersthat need to scale to different sizes.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">StretchTypeTop</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Top edge stretch behavior factor</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">StretchTypeBottom</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Bottom edge stretch behavior factor</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">StretchTypeLeft</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Left edge stretch behavior factor</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">StretchTypeRight</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Right edge stretch behavior factor</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">StretchTypeCenter</span>:<span> float</span>
+						</code>
+						<div class="small-abstract">
+							<span>Center region stretch behavior factor</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">ImageTopLeft</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Top-left corner image (non-stretchable)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">ImageTop</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Top edge image (horizontally stretchable)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">ImageTopRight</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Top-right corner image (non-stretchable)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">ImageLeft</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Left edge image (vertically stretchable)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">ImageCenter</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Center region image (stretchable in both directions)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">ImageRight</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Right edge image (vertically stretchable)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">ImageBottomLeft</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Bottom-left corner image (non-stretchable)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">ImageBottom</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Bottom edge image (horizontally stretchable)</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">ImageBottomRight</span>:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Bottom-right corner image (non-stretchable)</span>
+						</div>
+					</div>
+				</div>
+				<div id="Material" class="class" data-name="Material" data-inherits="Object" data-xmlns="ui">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Material</h1>
+					<div class="abstract">Shader-based rendering material for advanced visual effects</div>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/presentation</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.ui.Material</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Object" class="name base">Object</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Create</li>
+						</ui>
+					</div>
+					<h2 class="title">Overview</h2>
+					<div class="abstract">Encapsulates shader programs and their parameters for customrendering effects. Supports standard uniforms for color and texture.</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">Shader</span>:<span> Shader</span>
+						</code>
+						<div class="small-abstract">
+							<span>Shader program for custom rendering</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BlendMode</span>:<span> BlendMode</span>
+						</code>
+						<div class="small-abstract">
+							<span>Blending mode for material rendering</span>
+						</div>
+						<div class="small-abstract">Values: Opaque, Alpha, Additive, PremultipliedAlpha, MixedAlpha, AlphaAutomatic</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier" />:<span> color</span>
+						</code>
+						<div class="small-abstract">
+							<span>Uniform color parameter for shader</span>
+						</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier" />:<span> Image</span>
+						</code>
+						<div class="small-abstract">
+							<span>Uniform texture parameter for shader</span>
+						</div>
+					</div>
+				</div>
+				<div id="Node3D" class="class" data-name="Node3D" data-inherits="Node" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Node3D</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.Node3D</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node" class="name base">Node</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Create</li>
+							<li class="function">UpdateMatrix</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">LayoutTransform</span>:<span> transform3</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">LayoutTransformTranslation</span>:<span> vec3</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">LayoutTransformRotation</span>:<span> vec3</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">LayoutTransformScale</span>:<span> vec3</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">RenderTransform</span>:<span> transform3</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">RenderTransformTranslation</span>:<span> vec3</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">RenderTransformRotation</span>:<span> vec3</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">RenderTransformScale</span>:<span> vec3</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">RenderTransformOrigin</span>:<span> vec3</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">ContentOffset</span>:<span> vec3</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Matrix</span>:<span> mat4</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">CalculatedOffset</span>:<span> float</span>
+						</code>
+					</div>
+				</div>
+				<div id="Scene" class="class" data-name="Scene" data-inherits="Node3D" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Scene</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.Scene</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node3D" class="name base">Node3D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">UpdateMatrix</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Camera</span>:<span> string</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PreviewCamera</span>:<span> string</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">HitTestCamera</span>:<span> string</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>object</span>
+							<span class="identifier">RenderPass</span>:<span> RenderPass</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">BackgroundTimelineSequence</span>:<span> string</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>object</span>
+							<span class="identifier">ComposerOverride</span>:<span> RenderPass</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">EnvironmentTexture</span>:<span> Image</span>
+						</code>
+					</div>
+				</div>
+				<div id="Model3D" class="class" data-name="Model3D" data-inherits="Node3D" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Model3D</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.Model3D</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node3D" class="name base">Node3D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Render</li>
+							<li class="function">Create</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">Mesh</span>:<span> Model</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>object</span>
+							<span class="identifier">Material</span>:<span> Material</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BlendMode</span>:<span> BlendMode</span>
+						</code>
+						<div class="small-abstract">Values: Opaque, Alpha, Additive, PremultipliedAlpha, MixedAlpha, AlphaAutomatic</div>
+					</div>
+				</div>
+				<div id="PlaneMeshNode" class="class" data-name="PlaneMeshNode" data-inherits="Model3D" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">PlaneMeshNode</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.PlaneMeshNode</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Model3D" class="name base">Model3D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Render</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PlaneWidth</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PlaneHeight</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PlaneInvertU</span>:<span> bool</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PlaneInvertV</span>:<span> bool</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">GenerateTangents</span>:<span> bool</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">GenerateNormals</span>:<span> bool</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>object</span>
+							<span class="identifier">MeshMaterial</span>:<span> Material</span>
+						</code>
+					</div>
+				</div>
+				<div id="Camera" class="class" data-name="Camera" data-inherits="Node3D" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Camera</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.Camera</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node3D" class="name base">Node3D</a>
+							</li>
+						</ui>
+					</code>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Fov</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">FovType</span>:<span> FovType</span>
+						</code>
+						<div class="small-abstract">Values: Xfov, Yfov</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">ProjectionType</span>:<span> ProjectionType</span>
+						</code>
+						<div class="small-abstract">Values: Perspective, Orthographic</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ZNear</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ZFar</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">EyeSeparation</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">FocalDistance</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">OrthogonalPlaneHeight</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ZPositive</span>:<span> bool</span>
+						</code>
+					</div>
+				</div>
+				<div id="TrajectoryList3D" class="class" data-name="TrajectoryList3D" data-inherits="Node3D" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">TrajectoryList3D</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.TrajectoryList3D</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node3D" class="name base">Node3D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">UpdateMatrix</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">Trajectory</span>:<span> Shape</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">ScrollAxis</span>:<span> vec2</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Looping</span>:<span> bool</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Spacing</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">SelectionBehavior</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">SelectedItemIndex</span>:<span> float</span>
+						</code>
+					</div>
+				</div>
+				<div id="Viewport3D" class="class" data-name="Viewport3D" data-inherits="Node2D" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Viewport3D</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.Viewport3D</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node2D" class="name base">Node2D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">ForegroundContent</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Camera</span>:<span> string</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">PreviewCamera</span>:<span> string</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">HitTestCamera</span>:<span> string</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>object</span>
+							<span class="identifier">RenderPass</span>:<span> RenderPass</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Scene</span>:<span> string</span>
+						</code>
+					</div>
+				</div>
+				<div id="PrefabView3D" class="class" data-name="PrefabView3D" data-inherits="Node3D" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">PrefabView3D</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.PrefabView3D</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node3D" class="name base">Node3D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">LoadView</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">SCA</span>:<span> string</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Prefab</span>:<span> string</span>
+						</code>
+					</div>
+				</div>
+				<div id="RenderPass" class="class" data-name="RenderPass" data-inherits="Node" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">RenderPass</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.RenderPass</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node" class="name base">Node</a>
+							</li>
+						</ui>
+					</code>
+				</div>
+				<div id="CompositionTargetRenderPass" class="class" data-name="CompositionTargetRenderPass" data-inherits="RenderPass" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">CompositionTargetRenderPass</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.CompositionTargetRenderPass</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#RenderPass" class="name base">RenderPass</a>
+							</li>
+						</ui>
+					</code>
+				</div>
+				<div id="BlitRenderPass" class="class" data-name="BlitRenderPass" data-inherits="RenderPass" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">BlitRenderPass</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.BlitRenderPass</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#RenderPass" class="name base">RenderPass</a>
+							</li>
+						</ui>
+					</code>
+				</div>
+				<div id="ClearRenderPass" class="class" data-name="ClearRenderPass" data-inherits="RenderPass" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">ClearRenderPass</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.ClearRenderPass</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#RenderPass" class="name base">RenderPass</a>
+							</li>
+						</ui>
+					</code>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">ClearColor</span>:<span> color</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ClearDepth</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ClearStencil</span>:<span> int</span>
+						</code>
+					</div>
+				</div>
+				<div id="DrawObjectsRenderPass" class="class" data-name="DrawObjectsRenderPass" data-inherits="RenderPass" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">DrawObjectsRenderPass</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.DrawObjectsRenderPass</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#RenderPass" class="name base">RenderPass</a>
+							</li>
+						</ui>
+					</code>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Camera</span>:<span> string</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">IncludeTags</span>:<span> objectTags_t</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">ExcludeTags</span>:<span> objectTags_t</span>
+						</code>
+					</div>
+				</div>
+				<div id="PipelineStateRenderPass" class="class" data-name="PipelineStateRenderPass" data-inherits="RenderPass" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">PipelineStateRenderPass</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.PipelineStateRenderPass</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#RenderPass" class="name base">RenderPass</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Create</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BlendMode</span>:<span> BlendMode</span>
+						</code>
+						<div class="small-abstract">Values: Opaque, Alpha, Additive, PremultipliedAlpha, MixedAlpha, AlphaAutomatic</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">ColorWriteMode</span>:<span> ColorWriteMode</span>
+						</code>
+						<div class="small-abstract">Values: None, RGB, RGBA, R, G, B, GB, A</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">CullMode</span>:<span> CullMode</span>
+						</code>
+						<div class="small-abstract">Values: None, Back, Front</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">DepthTestFunction</span>:<span> CompareFunc</span>
+						</code>
+						<div class="small-abstract">Values: Never, Always, Less, LessOrEqual, Greater, GreaterOrEqual, Equal, NotEqual, Disabled</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">DepthWriteEnabled</span>:<span> bool</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">ViewportMode</span>:<span> ViewportMode</span>
+						</code>
+						<div class="small-abstract">Values: Relative, Absolute</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">ScissorMode</span>:<span> ViewportMode</span>
+						</code>
+						<div class="small-abstract">Values: Relative, Absolute</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Viewport</span>:<span> vec4</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Scissor</span>:<span> vec4</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">StencilTestFunction</span>:<span> CompareFunc</span>
+						</code>
+						<div class="small-abstract">Values: Never, Always, Less, LessOrEqual, Greater, GreaterOrEqual, Equal, NotEqual, Disabled</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">StencilReferenceValue</span>:<span> int</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">StencilMask</span>:<span> int</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">StencilFailOperation</span>:<span> StencilOp</span>
+						</code>
+						<div class="small-abstract">Values: Keep, Zero, Replace, Increment, IncrementWrap, Decrement, DecrementWrap, Invert</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">StencilPassDepthFailOperation</span>:<span> StencilOp</span>
+						</code>
+						<div class="small-abstract">Values: Keep, Zero, Replace, Increment, IncrementWrap, Decrement, DecrementWrap, Invert</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">StencilDepthPassOperation</span>:<span> StencilOp</span>
+						</code>
+						<div class="small-abstract">Values: Keep, Zero, Replace, Increment, IncrementWrap, Decrement, DecrementWrap, Invert</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">StencilWriteEnabled</span>:<span> bool</span>
+						</code>
+					</div>
+				</div>
+				<div id="TextBlock3D" class="class" data-name="TextBlock3D" data-inherits="Node3D, TextBlockConcept" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">TextBlock3D</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.TextBlock3D</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node3D" class="name base">Node3D</a>
+							</li>
+							<li>
+								<a href="#TextBlockConcept" class="name base"> TextBlockConcept</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Render</li>
+							<li class="function">Create</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Font</span>:<span> FontShorthand</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">FontFamily</span>:<span> </span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">FontSize</span>:<span> float</span>
+						</code>
+					</div>
+				</div>
+				<div id="Light3D" class="class" data-name="Light3D" data-inherits="Node3D" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">Light3D</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.Light3D</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node3D" class="name base">Node3D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Render</li>
+							<li class="function">Create</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Color</span>:<span> color</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">SpotAngle</span>:<span> vec2</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Intensity</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>var</span>
+							<span class="identifier">Range</span>:<span> float</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">Type</span>:<span> LightType</span>
+						</code>
+						<div class="small-abstract">Values: Point, Spot</div>
+					</div>
+				</div>
+				<div id="SpriteView" class="class" data-name="SpriteView" data-inherits="Node3D" data-xmlns="SceneKit">
+					<div class="eyebrow">Class</div>
+					<h1 class="header">SpriteView</h1>
+					<code class="source">
+						<div class="token-keyword">
+							<span class="token-keyword">@xmlns</span>
+							<span class="token-string">http://schemas.corepunch.com/orca/2006/xml/SceneKit</span>
+						</div>
+						<span class="token-keyword">class</span>
+						<span class="token-identifier">orca.SceneKit.SpriteView</span>
+						<span class="token-keyword">inherits</span>
+						<ui class="comma-list">
+							<li>
+								<a href="#Node3D" class="name base">Node3D</a>
+							</li>
+						</ui>
+					</code>
+					<div>
+						<ui class="comma-list">
+							<li class="function">Render</li>
+						</ui>
+					</div>
+					<h2 class="title">Properties</h2>
+					<div class="topic">
+						<code class="decorator">
+							<span>asset</span>
+							<span class="identifier">Image</span>:<span> Image</span>
+						</code>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>enum</span>
+							<span class="identifier">BlendMode</span>:<span> BlendMode</span>
+						</code>
+						<div class="small-abstract">Values: Opaque, Alpha, Additive, PremultipliedAlpha, MixedAlpha, AlphaAutomatic</div>
+					</div>
+					<div class="topic">
+						<code class="decorator">
+							<span>struct</span>
+							<span class="identifier">Bounds</span>:<span> vec4</span>
+						</code>
+					</div>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>
