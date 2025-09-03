@@ -1,0 +1,1230 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.corepunch.com/orca/2006/xml/presentation" xmlns="http://schemas.corepunch.com/orca/2006/xml/presentation" elementFormDefault="qualified">
+	<xs:complexType name="Object">
+		<xs:attribute name="name" type="xs:string" />
+		<xs:attribute name="stateManager" type="xs:string" />
+	</xs:complexType>
+	<xs:complexType name="DataObject">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AnimationPlayer">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="AutoplayEnabled" type="xs:string" />
+				<xs:attribute name="DurationScale" type="xs:float" />
+				<xs:attribute name="PlaybackMode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Normal" />
+							<xs:enumeration value="Reverse" />
+							<xs:enumeration value="Pingpong" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="RelativePlayback" type="xs:string" />
+				<xs:attribute name="RepeatCount" type="xs:int" />
+				<xs:attribute name="RestoreOriginalValuesAfterPlayback" type="xs:string" />
+				<xs:attribute name="Timeline" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Trigger">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Property" type="xs:string" />
+				<xs:attribute name="Value" type="xs:int" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OnPropertyChangedTrigger">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="SourceNode" type="xs:string" />
+				<xs:attribute name="Property" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OnAttachedTrigger">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EventTrigger">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="RoutedEvent" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Setter">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Trigger" type="xs:string" />
+				<xs:attribute name="Property" type="xs:string" />
+				<xs:attribute name="Value" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Project">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Name" type="xs:string" />
+				<xs:attribute name="ScreenWidth" type="xs:int" />
+				<xs:attribute name="ScreenHeight" type="xs:int" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Handler">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Trigger" type="xs:string" />
+				<xs:attribute name="Target" type="xs:string" />
+				<xs:attribute name="Function" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Node">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Margin" type="xs:string" />
+				<xs:attribute name="Padding" type="xs:string" />
+				<xs:attribute name="Border" type="xs:string" />
+				<xs:attribute name="BorderWidth" type="xs:string" />
+				<xs:attribute name="BorderStyle" type="xs:string" />
+				<xs:attribute name="BorderColor" type="xs:string" />
+				<xs:attribute name="HorizontalMargin" type="xs:string" />
+				<xs:attribute name="MarginLeft" type="xs:float" />
+				<xs:attribute name="MarginRight" type="xs:float" />
+				<xs:attribute name="HorizontalPadding" type="xs:string" />
+				<xs:attribute name="PaddingLeft" type="xs:float" />
+				<xs:attribute name="PaddingRight" type="xs:float" />
+				<xs:attribute name="HorizontalBorder" type="xs:string" />
+				<xs:attribute name="BorderLeft" type="xs:string" />
+				<xs:attribute name="BorderLeftWidth" type="xs:float" />
+				<xs:attribute name="BorderLeftStyle">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="None" />
+							<xs:enumeration value="Hidden" />
+							<xs:enumeration value="Dotted" />
+							<xs:enumeration value="Dashed" />
+							<xs:enumeration value="Solid" />
+							<xs:enumeration value="Double" />
+							<xs:enumeration value="Groove" />
+							<xs:enumeration value="Ridge" />
+							<xs:enumeration value="Inset" />
+							<xs:enumeration value="Outset" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="BorderLeftColor" type="xs:string" />
+				<xs:attribute name="BorderRight" type="xs:string" />
+				<xs:attribute name="BorderRightWidth" type="xs:float" />
+				<xs:attribute name="BorderRightStyle">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="None" />
+							<xs:enumeration value="Hidden" />
+							<xs:enumeration value="Dotted" />
+							<xs:enumeration value="Dashed" />
+							<xs:enumeration value="Solid" />
+							<xs:enumeration value="Double" />
+							<xs:enumeration value="Groove" />
+							<xs:enumeration value="Ridge" />
+							<xs:enumeration value="Inset" />
+							<xs:enumeration value="Outset" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="BorderRightColor" type="xs:string" />
+				<xs:attribute name="HorizontalAlignment">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Left" />
+							<xs:enumeration value="Center" />
+							<xs:enumeration value="Right" />
+							<xs:enumeration value="Stretch" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Width" type="xs:float" />
+				<xs:attribute name="ActualWidth" type="xs:float" />
+				<xs:attribute name="MinWidth" type="xs:float" />
+				<xs:attribute name="ScrollWidth" type="xs:float" />
+				<xs:attribute name="VerticalMargin" type="xs:string" />
+				<xs:attribute name="MarginTop" type="xs:float" />
+				<xs:attribute name="MarginBottom" type="xs:float" />
+				<xs:attribute name="VerticalPadding" type="xs:string" />
+				<xs:attribute name="PaddingTop" type="xs:float" />
+				<xs:attribute name="PaddingBottom" type="xs:float" />
+				<xs:attribute name="VerticalBorder" type="xs:string" />
+				<xs:attribute name="BorderTop" type="xs:string" />
+				<xs:attribute name="BorderTopWidth" type="xs:float" />
+				<xs:attribute name="BorderTopStyle">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="None" />
+							<xs:enumeration value="Hidden" />
+							<xs:enumeration value="Dotted" />
+							<xs:enumeration value="Dashed" />
+							<xs:enumeration value="Solid" />
+							<xs:enumeration value="Double" />
+							<xs:enumeration value="Groove" />
+							<xs:enumeration value="Ridge" />
+							<xs:enumeration value="Inset" />
+							<xs:enumeration value="Outset" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="BorderTopColor" type="xs:string" />
+				<xs:attribute name="BorderBottom" type="xs:string" />
+				<xs:attribute name="BorderBottomWidth" type="xs:float" />
+				<xs:attribute name="BorderBottomStyle">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="None" />
+							<xs:enumeration value="Hidden" />
+							<xs:enumeration value="Dotted" />
+							<xs:enumeration value="Dashed" />
+							<xs:enumeration value="Solid" />
+							<xs:enumeration value="Double" />
+							<xs:enumeration value="Groove" />
+							<xs:enumeration value="Ridge" />
+							<xs:enumeration value="Inset" />
+							<xs:enumeration value="Outset" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="BorderBottomColor" type="xs:string" />
+				<xs:attribute name="VerticalAlignment">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Top" />
+							<xs:enumeration value="Center" />
+							<xs:enumeration value="Bottom" />
+							<xs:enumeration value="Stretch" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Height" type="xs:float" />
+				<xs:attribute name="ActualHeight" type="xs:float" />
+				<xs:attribute name="MinHeight" type="xs:float" />
+				<xs:attribute name="ScrollHeight" type="xs:float" />
+				<xs:attribute name="DepthMargin" type="xs:string" />
+				<xs:attribute name="MarginFront" type="xs:float" />
+				<xs:attribute name="MarginBack" type="xs:float" />
+				<xs:attribute name="DepthPadding" type="xs:string" />
+				<xs:attribute name="PaddingFront" type="xs:float" />
+				<xs:attribute name="PaddingBack" type="xs:float" />
+				<xs:attribute name="DepthBorder" type="xs:string" />
+				<xs:attribute name="BorderFront" type="xs:string" />
+				<xs:attribute name="BorderFrontWidth" type="xs:float" />
+				<xs:attribute name="BorderFrontStyle">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="None" />
+							<xs:enumeration value="Hidden" />
+							<xs:enumeration value="Dotted" />
+							<xs:enumeration value="Dashed" />
+							<xs:enumeration value="Solid" />
+							<xs:enumeration value="Double" />
+							<xs:enumeration value="Groove" />
+							<xs:enumeration value="Ridge" />
+							<xs:enumeration value="Inset" />
+							<xs:enumeration value="Outset" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="BorderFrontColor" type="xs:string" />
+				<xs:attribute name="BorderBack" type="xs:string" />
+				<xs:attribute name="BorderBackWidth" type="xs:float" />
+				<xs:attribute name="BorderBackStyle">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="None" />
+							<xs:enumeration value="Hidden" />
+							<xs:enumeration value="Dotted" />
+							<xs:enumeration value="Dashed" />
+							<xs:enumeration value="Solid" />
+							<xs:enumeration value="Double" />
+							<xs:enumeration value="Groove" />
+							<xs:enumeration value="Ridge" />
+							<xs:enumeration value="Inset" />
+							<xs:enumeration value="Outset" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="BorderBackColor" type="xs:string" />
+				<xs:attribute name="DepthAlignment">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Near" />
+							<xs:enumeration value="Center" />
+							<xs:enumeration value="Far" />
+							<xs:enumeration value="Stretch" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Depth" type="xs:float" />
+				<xs:attribute name="ActualDepth" type="xs:float" />
+				<xs:attribute name="MinDepth" type="xs:float" />
+				<xs:attribute name="ScrollDepth" type="xs:float" />
+				<xs:attribute name="Visible" type="xs:string" />
+				<xs:attribute name="QuickHide" type="xs:string" />
+				<xs:attribute name="VisibleAmountInParent" type="xs:float" />
+				<xs:attribute name="Opacity" type="xs:float" />
+				<xs:attribute name="Tags" type="xs:string" />
+				<xs:attribute name="DataContext" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TextBlockConcept">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Text" type="xs:string" />
+				<xs:attribute name="TextResourceID" type="xs:string" />
+				<xs:attribute name="TextResourceConfiguration" type="xs:string" />
+				<xs:attribute name="PlaceholderText" type="xs:string" />
+				<xs:attribute name="TextOverflow" type="xs:string" />
+				<xs:attribute name="HighlightColor" type="xs:string" />
+				<xs:attribute name="Placeholder" type="xs:string" />
+				<xs:attribute name="PlaceholderColor" type="xs:string" />
+				<xs:attribute name="PlaceholderImage" type="xs:string" />
+				<xs:attribute name="PlaceholderMaterial" type="xs:string" />
+				<xs:attribute name="Underline" type="xs:string" />
+				<xs:attribute name="UnderlineOffset" type="xs:float" />
+				<xs:attribute name="UnderlineWidth" type="xs:float" />
+				<xs:attribute name="UnderlineColor" type="xs:string" />
+				<xs:attribute name="UseFullFontHeight" type="xs:string" />
+				<xs:attribute name="ConstrainContentHeight" type="xs:string" />
+				<xs:attribute name="WordWrap" type="xs:string" />
+				<xs:attribute name="RemoveSideBearingsProperty" type="xs:string" />
+				<xs:attribute name="LetterSpacing" type="xs:float" />
+				<xs:attribute name="LineHeight" type="xs:float" />
+				<xs:attribute name="CharacterSpacing" type="xs:float" />
+				<xs:attribute name="FixedCharacterWidth" type="xs:float" />
+				<xs:attribute name="TextHorizontalAlignment">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Left" />
+							<xs:enumeration value="Center" />
+							<xs:enumeration value="Right" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="TextVerticalAlignment">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Top" />
+							<xs:enumeration value="Center" />
+							<xs:enumeration value="Bottom" />
+							<xs:enumeration value="Baseline" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Node2D">
+		<xs:complexContent>
+			<xs:extension base="Node">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="LayoutTransform" type="xs:string" />
+				<xs:attribute name="LayoutTransformTranslation" type="xs:string" />
+				<xs:attribute name="LayoutTransformRotation" type="xs:float" />
+				<xs:attribute name="LayoutTransformScale" type="xs:string" />
+				<xs:attribute name="RenderTransform" type="xs:string" />
+				<xs:attribute name="RenderTransformTranslation" type="xs:string" />
+				<xs:attribute name="RenderTransformRotation" type="xs:float" />
+				<xs:attribute name="RenderTransformScale" type="xs:string" />
+				<xs:attribute name="RenderTransformOrigin" type="xs:string" />
+				<xs:attribute name="ContentOffset" type="xs:string" />
+				<xs:attribute name="Matrix" type="xs:string" />
+				<xs:attribute name="RenderTarget" type="xs:string" />
+				<xs:attribute name="Background" type="xs:string" />
+				<xs:attribute name="BackgroundColor" type="xs:string" />
+				<xs:attribute name="BackgroundImage" type="xs:string" />
+				<xs:attribute name="BackgroundMaterial" type="xs:string" />
+				<xs:attribute name="Foreground" type="xs:string" />
+				<xs:attribute name="ForegroundColor" type="xs:string" />
+				<xs:attribute name="ForegroundImage" type="xs:string" />
+				<xs:attribute name="ForegroundMaterial" type="xs:string" />
+				<xs:attribute name="BoxShadow" type="xs:string" />
+				<xs:attribute name="BoxShadowOffset" type="xs:string" />
+				<xs:attribute name="BoxShadowBlurRadius" type="xs:float" />
+				<xs:attribute name="BoxShadowSpreadRadius" type="xs:float" />
+				<xs:attribute name="BoxShadowColor" type="xs:string" />
+				<xs:attribute name="Overflow" type="xs:string" />
+				<xs:attribute name="OverflowX">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Visible" />
+							<xs:enumeration value="Hidden" />
+							<xs:enumeration value="Clip" />
+							<xs:enumeration value="Scroll" />
+							<xs:enumeration value="Auto" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="OverflowY">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Visible" />
+							<xs:enumeration value="Hidden" />
+							<xs:enumeration value="Clip" />
+							<xs:enumeration value="Scroll" />
+							<xs:enumeration value="Auto" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Ring" type="xs:string" />
+				<xs:attribute name="RingOffset" type="xs:float" />
+				<xs:attribute name="RingWidth" type="xs:float" />
+				<xs:attribute name="RingColor" type="xs:string" />
+				<xs:attribute name="BorderRadius" type="xs:string" />
+				<xs:attribute name="BorderTopLeftRadius" type="xs:float" />
+				<xs:attribute name="BorderTopRightRadius" type="xs:float" />
+				<xs:attribute name="BorderBottomRightRadius" type="xs:float" />
+				<xs:attribute name="BorderBottomLeftRadius" type="xs:float" />
+				<xs:attribute name="Font" type="xs:string" />
+				<xs:attribute name="FontWeight">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Normal" />
+							<xs:enumeration value="Bold" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="FontStyle">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Normal" />
+							<xs:enumeration value="Italic" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="FontSize" type="xs:float" />
+				<xs:attribute name="FontFamily" type="xs:string" />
+				<xs:attribute name="CompositionBrush" type="xs:string" />
+				<xs:attribute name="CompositionDesignSize" type="xs:string" />
+				<xs:attribute name="SizeToContent" type="xs:string" />
+				<xs:attribute name="OffscreenRendering" type="xs:string" />
+				<xs:attribute name="ForceComposition" type="xs:string" />
+				<xs:attribute name="CacheResult" type="xs:string" />
+				<xs:attribute name="SnapToPixel" type="xs:string" />
+				<xs:attribute name="ClipChildren" type="xs:string" />
+				<xs:attribute name="ContentStretch" type="xs:string" />
+				<xs:attribute name="Hovered" type="xs:string" />
+				<xs:attribute name="ForegroundHint">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="None" />
+							<xs:enumeration value="Translucent" />
+							<xs:enumeration value="Opaque" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="MouseDown" type="xs:string" />
+				<xs:attribute name="MouseUp" type="xs:string" />
+				<xs:attribute name="MouseDrag" type="xs:string" />
+				<xs:attribute name="GotFocus" type="xs:string" />
+				<xs:attribute name="LostFocus" type="xs:string" />
+				<xs:attribute name="KeyDown" type="xs:string" />
+				<xs:attribute name="KeyUp" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PrefabView2D">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="SCA" type="xs:string" />
+				<xs:attribute name="Prefab" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TextBlock">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Input">
+		<xs:complexContent>
+			<xs:extension base="TextBlock">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Name" type="xs:string" />
+				<xs:attribute name="Type">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Text" />
+							<xs:enumeration value="Password" />
+							<xs:enumeration value="Number" />
+							<xs:enumeration value="Checkbox" />
+							<xs:enumeration value="Radio" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Cursor" type="xs:int" />
+				<xs:attribute name="Multiline" type="xs:string" />
+				<xs:attribute name="Checked" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Button">
+		<xs:complexContent>
+			<xs:extension base="TextBlock">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Type">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Normal" />
+							<xs:enumeration value="Submit" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Label">
+		<xs:complexContent>
+			<xs:extension base="TextBlock">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="For" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StackView">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Reversed" type="xs:string" />
+				<xs:attribute name="Direction">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Horizontal" />
+							<xs:enumeration value="Vertical" />
+							<xs:enumeration value="Depth" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="AlignItems">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Start" />
+							<xs:enumeration value="Center" />
+							<xs:enumeration value="End" />
+							<xs:enumeration value="Stretch" />
+							<xs:enumeration value="Baseline" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="JustifyContent">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Start" />
+							<xs:enumeration value="End" />
+							<xs:enumeration value="Center" />
+							<xs:enumeration value="SpaceBetween" />
+							<xs:enumeration value="SpaceAround" />
+							<xs:enumeration value="SpaceEvenly" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Spacing" type="xs:float" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Form">
+		<xs:complexContent>
+			<xs:extension base="StackView">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CollectionView">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Direction">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Horizontal" />
+							<xs:enumeration value="Vertical" />
+							<xs:enumeration value="Depth" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Spacing" type="xs:float" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Control">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Pressed" type="xs:string" />
+				<xs:attribute name="Disabled" type="xs:string" />
+				<xs:attribute name="Hovered" type="xs:string" />
+				<xs:attribute name="Focused" type="xs:string" />
+				<xs:attribute name="Value" type="xs:string" />
+				<xs:attribute name="Scale" type="xs:float" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Screen">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="ClearColor" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Cinematic">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="FileName" type="xs:string" />
+				<xs:attribute name="FrameRate" type="xs:float" />
+				<xs:attribute name="NumFrames" type="xs:float" />
+				<xs:attribute name="FadeOut" type="xs:float" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Grid">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Columns" type="xs:string" />
+				<xs:attribute name="Rows" type="xs:string" />
+				<xs:attribute name="Direction">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Horizontal" />
+							<xs:enumeration value="Vertical" />
+							<xs:enumeration value="Depth" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Spacing" type="xs:float" />
+				<xs:attribute name="CellWidth" type="xs:float" />
+				<xs:attribute name="CellHeight" type="xs:float" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ImageView">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Src" type="xs:string" />
+				<xs:attribute name="Image" type="xs:string" />
+				<xs:attribute name="BlendMode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Opaque" />
+							<xs:enumeration value="Alpha" />
+							<xs:enumeration value="Additive" />
+							<xs:enumeration value="PremultipliedAlpha" />
+							<xs:enumeration value="MixedAlpha" />
+							<xs:enumeration value="AlphaAutomatic" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Edges" type="xs:string" />
+				<xs:attribute name="Insets" type="xs:string" />
+				<xs:attribute name="Viewbox" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NinePatchImage">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="StretchTypeTop" type="xs:float" />
+				<xs:attribute name="StretchTypeBottom" type="xs:float" />
+				<xs:attribute name="StretchTypeLeft" type="xs:float" />
+				<xs:attribute name="StretchTypeRight" type="xs:float" />
+				<xs:attribute name="StretchTypeCenter" type="xs:float" />
+				<xs:attribute name="ImageTopLeft" type="xs:string" />
+				<xs:attribute name="ImageTop" type="xs:string" />
+				<xs:attribute name="ImageTopRight" type="xs:string" />
+				<xs:attribute name="ImageLeft" type="xs:string" />
+				<xs:attribute name="ImageCenter" type="xs:string" />
+				<xs:attribute name="ImageRight" type="xs:string" />
+				<xs:attribute name="ImageBottomLeft" type="xs:string" />
+				<xs:attribute name="ImageBottom" type="xs:string" />
+				<xs:attribute name="ImageBottomRight" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Material">
+		<xs:complexContent>
+			<xs:extension base="Object">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Shader" type="xs:string" />
+				<xs:attribute name="BlendMode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Opaque" />
+							<xs:enumeration value="Alpha" />
+							<xs:enumeration value="Additive" />
+							<xs:enumeration value="PremultipliedAlpha" />
+							<xs:enumeration value="MixedAlpha" />
+							<xs:enumeration value="AlphaAutomatic" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="DataObject" type="DataObject" />
+	<xs:element name="AnimationPlayer" type="AnimationPlayer" />
+	<xs:element name="Trigger" type="Trigger" />
+	<xs:element name="OnPropertyChangedTrigger" type="OnPropertyChangedTrigger" />
+	<xs:element name="OnAttachedTrigger" type="OnAttachedTrigger" />
+	<xs:element name="EventTrigger" type="EventTrigger" />
+	<xs:element name="Setter" type="Setter" />
+	<xs:element name="Project" type="Project" />
+	<xs:element name="Handler" type="Handler" />
+	<xs:element name="Node" type="Node" />
+	<xs:element name="TextBlockConcept" type="TextBlockConcept" />
+	<xs:element name="Node2D" type="Node2D" />
+	<xs:element name="PrefabView2D" type="PrefabView2D" />
+	<xs:element name="TextBlock" type="TextBlock" />
+	<xs:element name="Input" type="Input" />
+	<xs:element name="Button" type="Button" />
+	<xs:element name="Label" type="Label" />
+	<xs:element name="StackView" type="StackView" />
+	<xs:element name="Form" type="Form" />
+	<xs:element name="CollectionView" type="CollectionView" />
+	<xs:element name="Control" type="Control" />
+	<xs:element name="Screen" type="Screen" />
+	<xs:element name="Cinematic" type="Cinematic" />
+	<xs:element name="Grid" type="Grid" />
+	<xs:element name="ImageView" type="ImageView" />
+	<xs:element name="NinePatchImage" type="NinePatchImage" />
+	<xs:element name="Material" type="Material" />
+	<xs:complexType name="Node3D">
+		<xs:complexContent>
+			<xs:extension base="Node">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="LayoutTransform" type="xs:string" />
+				<xs:attribute name="LayoutTransformTranslation" type="xs:string" />
+				<xs:attribute name="LayoutTransformRotation" type="xs:string" />
+				<xs:attribute name="LayoutTransformScale" type="xs:string" />
+				<xs:attribute name="RenderTransform" type="xs:string" />
+				<xs:attribute name="RenderTransformTranslation" type="xs:string" />
+				<xs:attribute name="RenderTransformRotation" type="xs:string" />
+				<xs:attribute name="RenderTransformScale" type="xs:string" />
+				<xs:attribute name="RenderTransformOrigin" type="xs:string" />
+				<xs:attribute name="ContentOffset" type="xs:string" />
+				<xs:attribute name="Matrix" type="xs:string" />
+				<xs:attribute name="CalculatedOffset" type="xs:float" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Scene">
+		<xs:complexContent>
+			<xs:extension base="Node3D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Camera" type="xs:string" />
+				<xs:attribute name="PreviewCamera" type="xs:string" />
+				<xs:attribute name="HitTestCamera" type="xs:string" />
+				<xs:attribute name="RenderPass" type="xs:string" />
+				<xs:attribute name="BackgroundTimelineSequence" type="xs:string" />
+				<xs:attribute name="ComposerOverride" type="xs:string" />
+				<xs:attribute name="EnvironmentTexture" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Model3D">
+		<xs:complexContent>
+			<xs:extension base="Node3D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Mesh" type="xs:string" />
+				<xs:attribute name="Material" type="xs:string" />
+				<xs:attribute name="BlendMode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Opaque" />
+							<xs:enumeration value="Alpha" />
+							<xs:enumeration value="Additive" />
+							<xs:enumeration value="PremultipliedAlpha" />
+							<xs:enumeration value="MixedAlpha" />
+							<xs:enumeration value="AlphaAutomatic" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PlaneMeshNode">
+		<xs:complexContent>
+			<xs:extension base="Model3D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="PlaneWidth" type="xs:float" />
+				<xs:attribute name="PlaneHeight" type="xs:float" />
+				<xs:attribute name="PlaneInvertU" type="xs:string" />
+				<xs:attribute name="PlaneInvertV" type="xs:string" />
+				<xs:attribute name="GenerateTangents" type="xs:string" />
+				<xs:attribute name="GenerateNormals" type="xs:string" />
+				<xs:attribute name="MeshMaterial" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Camera">
+		<xs:complexContent>
+			<xs:extension base="Node3D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Fov" type="xs:float" />
+				<xs:attribute name="FovType">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Xfov" />
+							<xs:enumeration value="Yfov" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="ProjectionType">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Perspective" />
+							<xs:enumeration value="Orthographic" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="ZNear" type="xs:float" />
+				<xs:attribute name="ZFar" type="xs:float" />
+				<xs:attribute name="EyeSeparation" type="xs:float" />
+				<xs:attribute name="FocalDistance" type="xs:float" />
+				<xs:attribute name="OrthogonalPlaneHeight" type="xs:float" />
+				<xs:attribute name="ZPositive" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TrajectoryList3D">
+		<xs:complexContent>
+			<xs:extension base="Node3D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Trajectory" type="xs:string" />
+				<xs:attribute name="ScrollAxis" type="xs:string" />
+				<xs:attribute name="Looping" type="xs:string" />
+				<xs:attribute name="Spacing" type="xs:float" />
+				<xs:attribute name="SelectionBehavior" type="xs:float" />
+				<xs:attribute name="SelectedItemIndex" type="xs:float" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Viewport3D">
+		<xs:complexContent>
+			<xs:extension base="Node2D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Camera" type="xs:string" />
+				<xs:attribute name="PreviewCamera" type="xs:string" />
+				<xs:attribute name="HitTestCamera" type="xs:string" />
+				<xs:attribute name="RenderPass" type="xs:string" />
+				<xs:attribute name="Scene" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PrefabView3D">
+		<xs:complexContent>
+			<xs:extension base="Node3D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="SCA" type="xs:string" />
+				<xs:attribute name="Prefab" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="RenderPass">
+		<xs:complexContent>
+			<xs:extension base="Node">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CompositionTargetRenderPass">
+		<xs:complexContent>
+			<xs:extension base="RenderPass">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BlitRenderPass">
+		<xs:complexContent>
+			<xs:extension base="RenderPass">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClearRenderPass">
+		<xs:complexContent>
+			<xs:extension base="RenderPass">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="ClearColor" type="xs:string" />
+				<xs:attribute name="ClearDepth" type="xs:float" />
+				<xs:attribute name="ClearStencil" type="xs:int" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DrawObjectsRenderPass">
+		<xs:complexContent>
+			<xs:extension base="RenderPass">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Camera" type="xs:string" />
+				<xs:attribute name="IncludeTags" type="xs:string" />
+				<xs:attribute name="ExcludeTags" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PipelineStateRenderPass">
+		<xs:complexContent>
+			<xs:extension base="RenderPass">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="BlendMode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Opaque" />
+							<xs:enumeration value="Alpha" />
+							<xs:enumeration value="Additive" />
+							<xs:enumeration value="PremultipliedAlpha" />
+							<xs:enumeration value="MixedAlpha" />
+							<xs:enumeration value="AlphaAutomatic" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="ColorWriteMode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="None" />
+							<xs:enumeration value="RGB" />
+							<xs:enumeration value="RGBA" />
+							<xs:enumeration value="R" />
+							<xs:enumeration value="G" />
+							<xs:enumeration value="B" />
+							<xs:enumeration value="GB" />
+							<xs:enumeration value="A" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="CullMode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="None" />
+							<xs:enumeration value="Back" />
+							<xs:enumeration value="Front" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="DepthTestFunction">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Never" />
+							<xs:enumeration value="Always" />
+							<xs:enumeration value="Less" />
+							<xs:enumeration value="LessOrEqual" />
+							<xs:enumeration value="Greater" />
+							<xs:enumeration value="GreaterOrEqual" />
+							<xs:enumeration value="Equal" />
+							<xs:enumeration value="NotEqual" />
+							<xs:enumeration value="Disabled" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="DepthWriteEnabled" type="xs:string" />
+				<xs:attribute name="ViewportMode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Relative" />
+							<xs:enumeration value="Absolute" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="ScissorMode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Relative" />
+							<xs:enumeration value="Absolute" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Viewport" type="xs:string" />
+				<xs:attribute name="Scissor" type="xs:string" />
+				<xs:attribute name="StencilTestFunction">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Never" />
+							<xs:enumeration value="Always" />
+							<xs:enumeration value="Less" />
+							<xs:enumeration value="LessOrEqual" />
+							<xs:enumeration value="Greater" />
+							<xs:enumeration value="GreaterOrEqual" />
+							<xs:enumeration value="Equal" />
+							<xs:enumeration value="NotEqual" />
+							<xs:enumeration value="Disabled" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="StencilReferenceValue" type="xs:int" />
+				<xs:attribute name="StencilMask" type="xs:int" />
+				<xs:attribute name="StencilFailOperation">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Keep" />
+							<xs:enumeration value="Zero" />
+							<xs:enumeration value="Replace" />
+							<xs:enumeration value="Increment" />
+							<xs:enumeration value="IncrementWrap" />
+							<xs:enumeration value="Decrement" />
+							<xs:enumeration value="DecrementWrap" />
+							<xs:enumeration value="Invert" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="StencilPassDepthFailOperation">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Keep" />
+							<xs:enumeration value="Zero" />
+							<xs:enumeration value="Replace" />
+							<xs:enumeration value="Increment" />
+							<xs:enumeration value="IncrementWrap" />
+							<xs:enumeration value="Decrement" />
+							<xs:enumeration value="DecrementWrap" />
+							<xs:enumeration value="Invert" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="StencilDepthPassOperation">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Keep" />
+							<xs:enumeration value="Zero" />
+							<xs:enumeration value="Replace" />
+							<xs:enumeration value="Increment" />
+							<xs:enumeration value="IncrementWrap" />
+							<xs:enumeration value="Decrement" />
+							<xs:enumeration value="DecrementWrap" />
+							<xs:enumeration value="Invert" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="StencilWriteEnabled" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TextBlock3D">
+		<xs:complexContent>
+			<xs:extension base="Node3D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Font" type="xs:string" />
+				<xs:attribute name="FontFamily" type="xs:string" />
+				<xs:attribute name="FontSize" type="xs:float" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Light3D">
+		<xs:complexContent>
+			<xs:extension base="Node3D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Color" type="xs:string" />
+				<xs:attribute name="SpotAngle" type="xs:string" />
+				<xs:attribute name="Intensity" type="xs:float" />
+				<xs:attribute name="Range" type="xs:float" />
+				<xs:attribute name="Type">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Point" />
+							<xs:enumeration value="Spot" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SpriteView">
+		<xs:complexContent>
+			<xs:extension base="Node3D">
+				<xs:sequence>
+					<xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+				</xs:sequence>
+				<xs:attribute name="Image" type="xs:string" />
+				<xs:attribute name="BlendMode">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Opaque" />
+							<xs:enumeration value="Alpha" />
+							<xs:enumeration value="Additive" />
+							<xs:enumeration value="PremultipliedAlpha" />
+							<xs:enumeration value="MixedAlpha" />
+							<xs:enumeration value="AlphaAutomatic" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="Bounds" type="xs:string" />
+				<xs:anyAttribute processContents="lax" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Node3D" type="Node3D" />
+	<xs:element name="Scene" type="Scene" />
+	<xs:element name="Model3D" type="Model3D" />
+	<xs:element name="PlaneMeshNode" type="PlaneMeshNode" />
+	<xs:element name="Camera" type="Camera" />
+	<xs:element name="TrajectoryList3D" type="TrajectoryList3D" />
+	<xs:element name="Viewport3D" type="Viewport3D" />
+	<xs:element name="PrefabView3D" type="PrefabView3D" />
+	<xs:element name="RenderPass" type="RenderPass" />
+	<xs:element name="CompositionTargetRenderPass" type="CompositionTargetRenderPass" />
+	<xs:element name="BlitRenderPass" type="BlitRenderPass" />
+	<xs:element name="ClearRenderPass" type="ClearRenderPass" />
+	<xs:element name="DrawObjectsRenderPass" type="DrawObjectsRenderPass" />
+	<xs:element name="PipelineStateRenderPass" type="PipelineStateRenderPass" />
+	<xs:element name="TextBlock3D" type="TextBlock3D" />
+	<xs:element name="Light3D" type="Light3D" />
+	<xs:element name="SpriteView" type="SpriteView" />
+</xs:schema>
