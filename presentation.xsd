@@ -1,4 +1,4 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://raw.githubusercontent.com/corepunch/portfolio/main/presentation" xmlns="https://raw.githubusercontent.com/corepunch/portfolio/main/presentation" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://raw.githubusercontent.com/corepunch/portfolio/main/presentation.xsd" xmlns="https://raw.githubusercontent.com/corepunch/portfolio/main/presentation.xsd" elementFormDefault="qualified">
 	<xs:complexType name="Object">
 		<xs:attribute name="name" type="xs:string" />
 		<xs:attribute name="stateManager" type="xs:string" />
